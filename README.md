@@ -1,25 +1,27 @@
-# Codex 聊天目录
+# Codex Chat Outline
 
-Codex Windows 客户端的本地阅读工具。在聊天右侧用一条菱形时间线标记提问，鼠标移上去即可展开带序号的目录，点击条目跳到对应位置。
+[简体中文](README.zh-CN.md)
 
-- 滚动聊天时标出当前提问。长聊天可搜索提问，也可用方向键、Home、End 和 Enter 定位。
-- 在目录的 **设置** 中切换简体中文和 English，分别调整目录背景色、不透明度和当前项颜色。选择 **应用并记住** 保存。
-- 分别调整正文、界面和代码字号。展开动画遵循系统的减少动态效果设置。
+Jump back to earlier prompts in long Codex chats. Codex Chat Outline adds a searchable timeline to the right edge of the Codex Windows desktop app. Hover over the diamond markers to open the numbered outline, then select a prompt to jump to it.
 
-## 开始使用
+- See which prompt you're reading as you scroll. Use the arrow keys, Home, End, and Enter to navigate from the keyboard.
+- Customize the outline's background color, opacity, and current prompt highlight. The interface supports English and Simplified Chinese and respects the system's reduced motion setting.
+- Set separate font sizes for chat text, the interface, and code. Choose **Apply and save** to keep your preferences.
 
-需要 Windows、通过 Microsoft Store 安装的 Codex，以及可在终端运行的 Node.js 22 或更新版本。
+## Getting started
 
-克隆本仓库后，在项目目录运行以下命令构建启动器。
+You need Windows, Codex installed from the Microsoft Store, and Node.js 22 or later available on your PATH.
+
+Clone this repository and run the following command from the project folder to build the launchers.
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Build-Launcher.ps1
 ```
 
-双击 **CodexChatOutline.exe**，打开有提问记录的聊天，然后将鼠标移到右侧时间线上。保持生成的 EXE 与项目里的 `worker.cjs`、`navigator.js`、`font-override.js` 和 `integration.js` 放在同一个目录。
+Double-click **CodexChatOutline.exe**, open a chat with at least one prompt, and hover over the timeline on the right. Keep the generated executables alongside `worker.cjs`, `navigator.js`, `font-override.js`, and `integration.js`.
 
-如果提示当前 Codex 没有开放本机连接，先完全退出 Codex，再双击启动器。启动器连接完成后会退出，目录在 Codex 打开期间持续运行。双击 **Stop-CodexChatOutline.exe** 可停用目录和字体设置。
+If Codex is already open without a local connection, quit it completely and run the launcher again. The launcher exits once connected, and the outline stays available while Codex is open. Run **Stop-CodexChatOutline.exe** to remove the outline and font overrides from the running client.
 
-## 本地数据
+## Local data
 
-工具通过本机连接读取当前聊天中供界面定位的提问。配置保存在 `%LOCALAPPDATA%\CodexChatOutline`，聊天内容不会保存到该目录或上传。退出由启动器打开的 Codex 会结束其本机连接。
+The tool uses a local connection to read the prompts it needs for navigation. Preferences are stored in `%LOCALAPPDATA%\CodexChatOutline`. Chat content stays in the client and is never written to the tool's settings or sent to a server. Quitting Codex closes the local connection.
