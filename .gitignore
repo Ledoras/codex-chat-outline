@@ -1,0 +1,11 @@
+*.exe
+*.pdb
+*.zip
+*.log
+*.tmp
+settings.json
+status.json
+endpoint.json
+worker.lock.json
+shutdown.flag
+node_modules/
