@@ -4,6 +4,10 @@
 
 Codex Windows 客户端的本地阅读工具。在聊天右侧用一条菱形时间线标记提问，鼠标移上去即可展开带序号的目录，点击条目跳到对应位置。
 
+[下载 Windows 版（ZIP）](https://github.com/Ledoras/codex-chat-outline/releases/latest/download/Codex-Chat-Outline-Windows.zip)
+
+![在示例聊天中，鼠标悬停展开菱形时间线，点击第 02 条提问并跳回对应位置。](assets/outline-demo.gif)
+
 - 滚动聊天时标出当前提问。长聊天可搜索提问，也可用方向键、Home、End 和 Enter 定位。
 - 在目录的 **设置** 中切换简体中文和 English，分别调整目录背景色、不透明度和当前项颜色。选择 **应用并记住** 保存。
 - 分别调整正文、界面和代码字号。展开动画遵循系统的减少动态效果设置。
@@ -12,15 +16,23 @@ Codex Windows 客户端的本地阅读工具。在聊天右侧用一条菱形时
 
 需要 Windows、通过 Microsoft Store 安装的 Codex，以及可在终端运行的 Node.js 22 或更新版本。
 
-克隆本仓库后，在项目目录运行以下命令构建启动器。
+1. 下载 ZIP，将全部文件解压到同一个文件夹。
+2. 双击 **CodexChatOutline.exe**，打开有提问记录的聊天，然后将鼠标移到右侧时间线上。
+
+如果提示当前 Codex 没有开放本机连接，先完全退出 Codex，再双击启动器。启动器连接完成后会退出，目录在 Codex 打开期间持续运行。双击 **Stop-CodexChatOutline.exe** 可停用目录和字体设置。
+
+<details>
+<summary>从源码构建</summary>
+
+克隆本仓库后，在项目目录运行以下命令。
 
 ```powershell
 powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File .\Build-Launcher.ps1
 ```
 
-双击 **CodexChatOutline.exe**，打开有提问记录的聊天，然后将鼠标移到右侧时间线上。保持生成的 EXE 与项目里的 `worker.cjs`、`navigator.js`、`font-override.js` 和 `integration.js` 放在同一个目录。
+将生成的 EXE 与 `worker.cjs`、`navigator.js`、`font-override.js` 和 `integration.js` 放在同一个目录。
 
-如果提示当前 Codex 没有开放本机连接，先完全退出 Codex，再双击启动器。启动器连接完成后会退出，目录在 Codex 打开期间持续运行。双击 **Stop-CodexChatOutline.exe** 可停用目录和字体设置。
+</details>
 
 ## 本地数据
 
